@@ -4,6 +4,7 @@ import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SparkSession;
 
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -21,6 +22,8 @@ public class SparkProgramming {
             printRDDCount(rdd);
             printNumPartitions(rdd);
             printMaxMinSum(rdd);
+            // Wait for user input to terminate the program
+            waitForTermination();
 
 
         } catch (Exception e) {
@@ -52,5 +55,12 @@ public class SparkProgramming {
             System.out.println(element);
         }
     }
+    private static void waitForTermination() {
+        System.out.println("Press Enter to terminate the program...");
+        try (Scanner scanner = new Scanner(System.in)) {
+            scanner.nextLine();
+        }
+    }
+
 
 }
